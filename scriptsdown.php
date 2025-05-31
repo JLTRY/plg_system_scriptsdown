@@ -19,7 +19,7 @@ class plgSystemScriptsDown extends CMSPlugin
 
 	function onBeforeCompileHead()
 	{
-		if (Factory::getApplication()->isAdmin()) {
+		if (!Factory::getApplication()->isClient('site')) {
 			return;
 		}
 		$doc = Factory::getDocument();
@@ -32,7 +32,7 @@ class plgSystemScriptsDown extends CMSPlugin
 
 	function onAfterRender()
 	{
-		if (Factory::getApplication()->isAdmin()) {
+		if (!Factory::getApplication()->isClient('site')) {
 			return;
 		}
 		$doc = Factory::getDocument();
